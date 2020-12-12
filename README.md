@@ -10,5 +10,5 @@
 >- nerdtree: toggle nerdtree with ctrl+n and press '?' to show help information.  
 >- vim-startify: typein vim command without any file and then show history file.  
 >- nerdcommenter: help NERDCommenter, comment c\c++ code.  
->- taglist(depend on ctags): help taglist | :Tlist(ctrl+m) and F1 see for help  
+>- tagbar(depend on ctags): ctrl+m and F1 see for help  
 >- vim-gutentags: in project, touch .project // https://zhuanlan.zhihu.com/p/43671939 //https://www.zhihu.com/question/47691414/answer/373700711
