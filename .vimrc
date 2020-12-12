@@ -37,7 +37,7 @@ call plug#begin('~/.vim/plugged') " Plugins will be downloaded under the specifi
     Plug 'mhinz/vim-startify' " https://github.com/mhinz/vim-startify.git
     Plug 'preservim/nerdtree' " https://github.com/preservim/nerdtree
     Plug 'preservim/nerdcommenter' " https://github.com/preservim/nerdcommenter
-    Plug 'vim-scripts/taglist.vim' " https://github.com/vim-scripts/taglist.vim
+    Plug 'majutsushi/tagbar'
     Plug 'ludovicchabant/vim-gutentags' " https://github.com/ludovicchabant/vim-gutentags
 call plug#end() " List ends here. Plugins become visible to Vim after this call.
 
@@ -61,7 +61,7 @@ endif
 
 " ---------------------key binding---------------------
 map <C-n> :NERDTreeToggle<CR> " toggle nerdtree with ctrl^n
-map <C-m> :TlistToggle<CR>
+map <C-m> :TagbarToggle<CR>
 
 
 
