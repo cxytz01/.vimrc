@@ -39,6 +39,7 @@ call plug#begin('~/.vim/plugged') " Plugins will be downloaded under the specifi
     Plug 'preservim/nerdcommenter' " https://github.com/preservim/nerdcommenter
     Plug 'majutsushi/tagbar'
     Plug 'ludovicchabant/vim-gutentags' " https://github.com/ludovicchabant/vim-gutentags
+    Plug 'fatih/vim-go'
 call plug#end() " List ends here. Plugins become visible to Vim after this call.
 
 " ---------------------Plugin speciality setting---------------------
