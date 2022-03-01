@@ -7,7 +7,8 @@ set number
 set nowrap "notepad++ !wrap
 set incsearch "do incremental searching, search as you type
 set hlsearch " highlight searches
-set title " change the terminal's title "
+set title " change the terminal's title
+set ruler " show statusline ruler: line, column
 
 
 
