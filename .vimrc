@@ -1,11 +1,16 @@
-"syntax on
-set expandtab "expand tab to space
+if !exists("g:syntax_on")
+    syntax enable
+endif
+
+filetype plugin indent on " https://github.com/rust-lang/rust.vim#installation
+
 set tabstop=4
-set shiftwidth=4 "<< >>
+set expandtab " expand tab to space
 set autoindent smartindent shiftround
+set shiftwidth=4 " << >>
 set number
-set nowrap "notepad++ !wrap
-set incsearch "do incremental searching, search as you type
+set nowrap " notepad++ !wrap
+set incsearch " do incremental searching, search as you type
 set hlsearch " highlight searches
 set title " change the terminal's title
 set ruler " show statusline ruler: line, column
@@ -40,11 +45,14 @@ call plug#begin('~/.vim/plugged') " Plugins will be downloaded under the specifi
     Plug 'preservim/nerdcommenter' " https://github.com/preservim/nerdcommenter
     Plug 'majutsushi/tagbar'
     Plug 'ludovicchabant/vim-gutentags' " https://github.com/ludovicchabant/vim-gutentags
+    " Plug 'jiangmiao/auto-pairs'
     Plug 'fatih/vim-go'
+    Plug 'rust-lang/rust.vim'
 call plug#end() " List ends here. Plugins become visible to Vim after this call.
 
 " ---------------------Plugin speciality setting---------------------
-" let Tlist_Auto_Open = 1
+" taglist
+let Tlist_Auto_Open = 1
 let Tlist_Exit_OnlyWindow = 1
 let Tlist_Show_One_File = 1
 let Tlist_Use_Right_Window =1
@@ -61,9 +69,20 @@ if !isdirectory(s:vim_tags) " 检测~/.cache/tags不存在就新建
    silent! call mkdir(s:vim_tags, 'p')
 endif
 
+" https://github.com/preservim/nerdtree
+" Start NERDTree and put the cursor back in the other window.
+autocmd VimEnter * NERDTree | wincmd p
+" Close the tab if NERDTree is the only window remaining in it.
+autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+" Open the existing NERDTree on each new tab.
+autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
+
+" rust
+let g:rustfmt_autosave = 1
+
 " ---------------------key binding---------------------
-map <C-n> :NERDTreeToggle<CR> " toggle nerdtree with ctrl^n
-map <C-m> :TagbarToggle<CR>
+map <CR> :NERDTreeToggle<CR> " toggle nerdtree with CR
+map <C-n> :TagbarToggle<CR>
 
 
 
